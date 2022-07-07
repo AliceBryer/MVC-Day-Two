@@ -61,7 +61,7 @@ router.get('/painting/:id', async (req, res) => {
 
     const painting = dbPaintingData.get({ plain: true });
     // TODO: Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render('painting', { painting });
+    res.render('painting', { painting, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
